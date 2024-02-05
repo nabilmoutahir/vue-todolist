@@ -7,7 +7,6 @@ const { createApp } = Vue
         
         // ARRAY TASKS
         tasks: [
-         
         ],
 
         // NUOVA TASK AGGIUNTA
@@ -16,8 +15,8 @@ const { createApp } = Vue
           done:false
         },
 
-        // TEXT VALUE
-        clearValue:'',
+        // TEXT STYLE
+        doneStyle: 'text-decoration-line-through',
 
       }  
     },
@@ -28,19 +27,19 @@ const { createApp } = Vue
       addNewTask () {
         newTaskCopy = { ...this.newTask };
         this.tasks.push(newTaskCopy);
+        this.newTask.text = '';
       },
 
       // REMOVE TASK
       removeTask (index) {
-
         this.tasks.splice(index, 1);
-
       },
 
-
+      // CHANGE TASK STATUS
+      taskDone(task) {
+        task.done = !task.done;
+      }
 
     },
-
-
 
   }).mount('#app')
