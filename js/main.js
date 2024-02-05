@@ -1,41 +1,36 @@
 const { createApp } = Vue
 
   createApp({
+    // DATA
     data() {
       return {
         
-        tasks:[
-          {
-            text:'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            done: false
-          },
-          {
-            text:'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            done: true
-          },
-          {
-            text:'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            done: true
-          },
-          {
-            text:'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            done: false
-          },
-          {
-            text:'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            done: false
-          },
-          {
-            text:'aaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            done: false
-          }
+        // ARRAY TASKS
+        tasks: [
+         
         ],
 
-      }
+        // NUOVA TASK AGGIUNTA
+        newTask: {
+          text:'',
+          done:false
+        },
 
-      
+        // TEXT VALUE
+        clearValue:'',
+
+      }  
     },
 
-    
+    methods: {
+      
+      addNewTask () {
+        newTaskCopy = { ...this.newTask };
+        this.tasks.push(newTaskCopy);
+      }
+
+    },
+
+
 
   }).mount('#app')
