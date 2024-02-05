@@ -24,10 +24,20 @@ const { createApp } = Vue
 
     methods: {
       
+      // ADD TASK
       addNewTask () {
         newTaskCopy = { ...this.newTask };
         this.tasks.push(newTaskCopy);
-      }
+      },
+
+      // REMOVE TASK
+      removeTask (index) {
+
+        this.tasks.splice(index, 1);
+
+      },
+
+
 
     },
 

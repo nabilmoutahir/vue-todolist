@@ -42,8 +42,8 @@
                             {{task.text}}
                         </span>
 
-                        <div>
-                            <i class="fa-solid fa-xmark"></i>
+                        <div @click="removeTask (index)" class="px-2 text-danger">
+                            <i class="fa-solid fa-trash"></i>
                         </div>
                     </div>
 
