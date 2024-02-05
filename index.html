@@ -18,39 +18,39 @@
     <div id="app">
 
         <div>
-
+            <!-- TITLE -->
             <h1 class="m-3 border-bottom border-2 border-dark-subtle">TO DO</h1>
 
             <div class="row">
                 <div class="col-6">
-
+                    <!-- ADD TASK -->
                     <div class="m-3 d-flex">
-                        <input v-model.trim="newTask.text" type="text" class="form-control me-1" placeholder="Add new task">
-                        <button @click="addNewTask()" class="btn btn-outline-success me-1" type="button">Add</button>
-                        <button class="btn btn-outline-danger" type="button">Delete</button>
+                        <!-- INPUT TEXT -->
+                        <input v-model.trim="newTask.text" type="text" class="form-control me-2" placeholder="Add new task" value="">
+
+                        <!-- ADD BUTTON -->
+                        <button @click="addNewTask()" class="btn btn-outline-success px-5" type="button">Add</button>
                     </div>
 
                     <hr class="m-3">
 
-                    <div v-for="(task, index) in tasks" class="d-flex justify-content-between align-items-center text-white bg-primary mx-3 my-2 rounded-3 px-4 py-2">
+                    <ul class="m-0 p-0">
+                        <!-- TASK ELEMENT -->
+                        <li v-for="(task, index) in tasks" :class="(task.done) ? doneStyle : ''" class="d-flex justify-content-between align-items-center text-white bg-primary mx-3 my-2 rounded-3 px-4 py-2">
                         
-                        <span v-if="task.done == false">
-                            {{task.text}}
-                        </span>
-
-                        <span v-else-if="task.done == true" class="text-decoration-line-through">
-                            {{task.text}}
-                        </span>
-
-                        <div @click="removeTask (index)" class="px-2 text-danger">
-                            <i class="fa-solid fa-trash"></i>
-                        </div>
-                    </div>
-
+                            <!-- TASK TEXT-->
+                            <div @click="taskDone (task)" class="flex-grow-1">
+                                {{task.text}}
+                            </div>
+                            
+                            <!-- REMOVE TASK -->
+                            <div @click="removeTask (index)" class="px-2 text-danger">
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-
             </div>
-
         </div>
 
 
